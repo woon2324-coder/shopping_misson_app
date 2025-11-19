@@ -127,7 +127,7 @@ def start_screen():
         st.session_state.mission = mission
         st.session_state.budget = missions[mission]
         st.session_state.page = "shop"
-        st.experimental_rerun()
+        st.rerun()
 
 
 def shopping_screen():
@@ -138,7 +138,8 @@ def shopping_screen():
 
     if df.empty:
         st.warning(
-            "products.csv 파일이 없거나 비어 있습니다. 리포지토리에 products.csv를 업로드했는지 확인하세요.\n"
+            "products.csv 파일이 없거나 비어 있습니다. 리포지토리에 products.csv를 업로드했는지 확인하세요.
+"
             "예시 컬럼: name,price,category,image_url"
         )
         if st.button("예시 products.csv 만들기"):
@@ -203,7 +204,7 @@ def shopping_screen():
     with col1:
         if st.button("결과 보기 — 제출"):
             st.session_state.page = "result"
-            st.experimental_rerun()
+            st.rerun()
     with col2:
         if st.button("처음으로"):
             st.session_state.page = "start"
@@ -211,7 +212,7 @@ def shopping_screen():
             st.session_state.budget = 0
             st.session_state.cart = {}
             st.session_state.reason = ""
-            st.experimental_rerun()
+            st.rerun()
 
 
 def result_screen():
@@ -222,7 +223,7 @@ def result_screen():
         st.warning("장바구니가 비어 있습니다. 쇼핑 화면으로 돌아가세요.")
         if st.button("쇼핑으로 돌아가기"):
             st.session_state.page = "shop"
-            st.experimental_rerun()
+            st.rerun()
         return
 
     total = sum(v['price'] * v['qty'] for v in cart.values())
@@ -253,7 +254,7 @@ def result_screen():
         st.session_state.budget = 0
         st.session_state.cart = {}
         st.session_state.reason = ""
-        st.experimental_rerun()
+        st.rerun()
 
 
 # ----------------------
@@ -268,7 +269,7 @@ elif st.session_state.page == "result":
 else:
     st.error("알 수 없는 페이지 상태입니다. 초기화합니다.")
     st.session_state.page = "start"
-    st.experimental_rerun()
+    st.rerun()
 
 
 # requirements.txt
