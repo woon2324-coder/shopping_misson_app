@@ -1,0 +1,4 @@
+# requirements.txt
+# Streamlit app dependencies
+streamlit
+pandas
