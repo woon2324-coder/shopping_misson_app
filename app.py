@@ -137,11 +137,9 @@ def shopping_screen():
     df = load_products()
 
     if df.empty:
-        st.warning(
-            "products.csv 파일이 없거나 비어 있습니다. 리포지토리에 products.csv를 업로드했는지 확인하세요.
-"
-            "예시 컬럼: name,price,category,image_url"
-        )
+        st.warning("""products.csv 파일이 없거나 비어 있습니다. 리포지토리에 products.csv를 업로드했는지 확인하세요.
+
+예시 컬럼: name,price,category,image_url""")
         if st.button("예시 products.csv 만들기"):
             example = pd.DataFrame([
                 {"name":"샌드위치","price":3000,"category":"음식","image_url":""},
